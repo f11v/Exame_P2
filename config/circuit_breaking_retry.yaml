@@ -1,0 +1,26 @@
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: solicitud_route
+          uri: http://localhost:8000
+          predicates:
+            - Path=/solicitudes/**
+          filters:
+            - name: Retry
+              args:
+                retries: 2
+                statuses: BAD_GATEWAY, GATEWAY_TIMEOUT
+            - name: CircuitBreaker
+              args:
+                name: solicitudCircuitBreaker
+                fallbackUri: forward:/fallback
+                statusCodes: 500
+                failureRateThreshold: 50
+                slowCallRateThreshold: 100
+                slowCallDurationThreshold: 2s
+                permittedNumberOfCallsInHalfOpenState: 2
+                slidingWindowSize: 10
+                minimumNumberOfCalls: 5
+                waitDurationInOpenState: 60s

@@ -1,0 +1,71 @@
+{
+    "info": {
+        "name": "SOAP Certificaci\u00f3n Mock",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Simulaci\u00f3n de Registro de Certificaci\u00f3n",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "text/xml",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n                  xmlns:cer=\"http://certificacion.gob.ec/\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <cer:registrarSolicitud>\n         <tipo>certificado</tipo>\n         <nombre>Fabiana</nombre>\n         <matricula>123456</matricula>\n      </cer:registrarSolicitud>\n   </soapenv:Body>\n</soapenv:Envelope>"
+                },
+                "url": {
+                    "raw": "https://mock.certificacion.com/soap",
+                    "protocol": "https",
+                    "host": [
+                        "mock",
+                        "certificacion",
+                        "com"
+                    ],
+                    "path": [
+                        "soap"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "Simulaci\u00f3n de respuesta SOAP",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "text/xml",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n                  xmlns:cer=\"http://certificacion.gob.ec/\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <cer:registrarSolicitud>\n         <tipo>certificado</tipo>\n         <nombre>Fabiana</nombre>\n         <matricula>123456</matricula>\n      </cer:registrarSolicitud>\n   </soapenv:Body>\n</soapenv:Envelope>"
+                        },
+                        "url": {
+                            "raw": "https://mock.certificacion.com/soap",
+                            "protocol": "https",
+                            "host": [
+                                "mock",
+                                "certificacion",
+                                "com"
+                            ],
+                            "path": [
+                                "soap"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n   <soapenv:Body>\n      <registrarSolicitudResponse>\n         <estado>procesado</estado>\n      </registrarSolicitudResponse>\n   </soapenv:Body>\n</soapenv:Envelope>"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+
+# Diseño de Arquitectura - Plataforma de Servicios Estudiantiles
+
+## Servicios Involucrados
+1. SolicitudService (Microservicio REST)
+2. Sistema Académico (REST API)
+3. Sistema de Certificación (SOAP externo simulado)
+4. Sistema de Seguridad y Roles (Validación JWT)
+5. API Gateway
+
+## Flujo de Componentes
+Usuario -> API Gateway -> SolicitudService -> (SOAP / REST) -> respuesta
+
+## Puntos de Aplicación:
+- Seguridad: API Gateway y SolicitudService (JWT)
+- Circuit Breaking y Retry: SolicitudService al llamar al SOAP
+- Trazabilidad: Logs por solicitud con request_id, integración futura con Jaeger
+
+## Herramientas sugeridas:
+- FastAPI para REST
+- SoapUI para simular SOAP
+- Kong Gateway (o Postman)
+- Jaeger o Prometheus + Grafana para observabilidad

@@ -1,0 +1,15 @@
+
+# Trazabilidad y Monitoreo
+
+Para monitorear esta arquitectura se utilizarían:
+
+- Prometheus: para recolectar métricas (tiempo de respuesta, errores por endpoint)
+- Grafana: para visualizar dashboards
+- Jaeger: para trazabilidad distribuida
+- ELK Stack: para logs centralizados
+
+## Métricas clave:
+- Latencia por endpoint
+- Número de solicitudes por tipo
+- Tasa de errores
+- Trazas por solicitud de extremo a extremo

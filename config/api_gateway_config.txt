@@ -1,0 +1,6 @@
+
+API Gateway: Simulated with Postman Mock
+
+- Registered Route: POST /solicitudes
+- Auth Policy: JWT validation (token must be 'valid-token')
+- Rate Limiting: 5 requests per minute per user

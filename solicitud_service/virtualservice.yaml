@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: solicitud-vs
+spec:
+  hosts:
+  - solicitud-service
+  http:
+  - retries:
+      attempts: 3
+      perTryTimeout: 2s
+      retryOn: gateway-error,connect-failure,refused-stream
+    route:
+    - destination:
+        host: solicitud-service
+        port:
+          number: 9000
